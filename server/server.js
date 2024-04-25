@@ -5,7 +5,7 @@ const path = require("path");
 const dir = "../angular-app/src/environments";
 const file = "environment.ts";
 
-const content = `${env["DEV_ENV_VARS"]}`;
+const content = `${process.env["DEV_DETAILS"]}`;
 
 fs.access(dir, fs.constants.F_OK, (err) => {
   if (err) {
