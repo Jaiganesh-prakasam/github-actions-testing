@@ -25,7 +25,8 @@ fs.access(dir, fs.constants.F_OK, (err) => {
     console.log('Created successfully in', process.cwd());
     if (fs.existsSync(dir + '/' + file)) {
       console.log('File is created', path.resolve(dir + '/' + file));
-      const str = fs.readFileSync('/home/runner/work/github-actions-testing/github-actions-testing/angular-app/src/environments' + '/' + file).toString();
+      console.log(process. cwd())
+      const str = fs.readFileSync('/angular-app/src/environments' + '/' + file).toString();
       console.log(str);
     }
   } catch (error) {
