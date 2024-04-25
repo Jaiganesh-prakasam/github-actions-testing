@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/build-node.yml@main
     with:
       working-directory: ./angular-app
-  # build-code-ui:
-  #   uses: .github/workflows/build-node.yml@main
-  #   with:
-  #     working-directory: ./code-ui
+  build-code-ui:
+    uses: .github/workflows/build-node.yml@main
+    with:
+      working-directory: ./code-ui
