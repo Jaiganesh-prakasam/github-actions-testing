@@ -29,7 +29,7 @@ jobs:
       # Build app 
       - name: Build app
         working-directory: ./angular-app
-        run: npm install && npm run build && lp /src/environments/environment.ts
+        run: npm install && npm run build
 
       # Build UI
       # - name: Build ui
