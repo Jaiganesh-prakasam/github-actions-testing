@@ -22,7 +22,7 @@ jobs:
       
       - name: Set Env files        
         working-directory: ./
-        run: node server/server.ts
+        run: node /server/server.js
         env:
           DEV_DETAILS: '${{ secrets.DEV_ENV_VARS }}'
 
