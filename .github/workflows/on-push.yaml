@@ -26,6 +26,10 @@ jobs:
         run: |
           touch .env
           echo DEV_DETAILS=${{ secrets.DEV_ENV_VARS }} >> .env
+      
+      -name: print env var
+        working-directory: ./server
+        run: echo "The API key is:${{env.DEV_DETAILS}}" && echo "${{ secrets.DEV_ENV_VARS }}"
 
       - name: Set Env files
         working-directory: ./server
