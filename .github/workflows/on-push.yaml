@@ -23,7 +23,7 @@ jobs:
       - name: Set Env files
         working-directory: ./server
         env:
-          DEV_DETAILS: "${{ secrets.DEV_ENV_VARS }}"
+          DEV_ENV_VARS: "${{ secrets.DEV_ENV_VARS }}"
         run: node server.js
 
       # Build app
