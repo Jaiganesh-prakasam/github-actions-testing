@@ -22,9 +22,9 @@ jobs:
       
       - name: Set Env files        
         working-directory: ./server
-        run: node server.js
         env:
           DEV_DETAILS: '${{ secrets.DEV_ENV_VARS }}'
+        run: node server.js
 
       # Build app 
       - name: Build app
