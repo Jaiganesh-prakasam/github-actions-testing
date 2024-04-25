@@ -23,9 +23,6 @@ jobs:
       - name: create env file
         env:
           DEV_DETAILS: "${{ secrets.DEV_ENV_VARS }}"
-        run: |
-          touch .env
-          echo DEV_DETAILS=${{ secrets.DEV_ENV_VARS }} >> .env
       
       -name: print env var
         working-directory: ./server
