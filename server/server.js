@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = 'angular-app/src/environments';
+const dir = '../angular-app/src/environments';
 const file = 'environment.ts';
 
 const content = `${process.env['DEV_ENV_VARS']}`;
@@ -25,7 +25,7 @@ fs.access(dir, fs.constants.F_OK, (err) => {
     console.log('Created successfully in', process.cwd());
     if (fs.existsSync(dir + '/' + file)) {
       console.log('File is created', path.resolve(dir + '/' + file));
-      const str = fs.readFileSync(dir + '/' + file).toString();
+      const str = fs.readFileSync('angular-app/src/environments' + '/' + file).toString();
       console.log(str);
     }
   } catch (error) {
