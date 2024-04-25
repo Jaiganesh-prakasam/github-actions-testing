@@ -1,0 +1,38 @@
+name: deploy-on-push
+run-name: Deploy on Push by ${{ github.actor }}
+on:
+  push:
+    branches:    
+      - main
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-to-dev-account:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Set Env files        
+        working-directory: ./
+        run: node server/server.ts
+        env:
+          DEV_DETAILS: '${{ secrets.DEV_ENV_VARS }}'
+
+      # Build app 
+      - name: Build app
+        working-directory: ./angular-app
+        run: lp /src/environments/environment.ts
+        run: npm install && npm run build --configuration development
+
+      # Build UI
+      # - name: Build ui
+      #   working-directory: ./code-ui
+      #   run: npm install && npm run build --configuration development

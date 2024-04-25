@@ -1,0 +1,27 @@
+name: Build Node
+run-name: Build Node by ${{ github.actor }}
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: false
+        type: string
+        default: '18'
+      working-directory:
+        required: true
+        type: string
+
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Install
+        working-directory: ${{ inputs.working-directory }}
+        run: npm install
+      - name: Build
+        working-directory: ${{ inputs.working-directory }}
+        run: npm run build

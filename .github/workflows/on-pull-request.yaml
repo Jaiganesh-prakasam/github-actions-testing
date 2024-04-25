@@ -1,0 +1,16 @@
+name: build-on-pull-request
+run-name: Build on Pull Request by ${{ github.actor }}
+on:
+  pull_request:
+    branches:    
+      - main
+
+jobs:
+  build-angular-app:
+    uses: .github/workflows/build-node.yml@main
+    with:
+      working-directory: ./angular-app
+  # build-code-ui:
+  #   uses: .github/workflows/build-node.yml@main
+  #   with:
+  #     working-directory: ./code-ui
