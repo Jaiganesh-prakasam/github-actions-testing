@@ -7,7 +7,7 @@ const file = 'environment.ts';
 
 const content = `${process.env['DEV_ENV_VARS']}`;
 
-fs.access(dir, fs.constants.F_OK, (err: any) => {
+fs.access(dir, fs.constants.F_OK, (err) => {
   if (err) {
     // Directory doesn't exist
     console.log("src doesn't exist, creating now", process.cwd());
