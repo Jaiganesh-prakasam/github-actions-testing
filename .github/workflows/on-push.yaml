@@ -34,4 +34,4 @@ jobs:
       # Build UI
       - name: Build ui
         working-directory: ./code-ui
-        run: npm install && npm run build --configuration development
+        run: npm install && npm run build
