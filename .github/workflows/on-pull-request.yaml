@@ -8,20 +8,15 @@ on:
 jobs:
   build-angular-app:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-      - name: generating env variable
-        working-directory: ./server
-        run: node server.js
-        env:
-          DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
-      - name: building angular app
-        uses: ./.github/workflows/build-node.yml
-        with:
-          working-directory: ./angular-app
+    - name: generating env variable
+      working-directory: ./server
+      run: node server.js
+      env:
+        DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
+    - name: building angular app
+      uses: ./.github/workflows/build-node.yml
+      with:
+        working-directory: ./angular-app
   # build-code-ui:
   #   - name: run angular app
   #     working-directory: ./server
