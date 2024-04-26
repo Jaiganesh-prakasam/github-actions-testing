@@ -7,20 +7,18 @@ on:
 
 jobs:
   build-angular-app:
-    - name: Set Env files
-      working-directory: ./server
-      run: node server.js
-      env:
-        DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
-      uses: build-node.yml@main
-      with:
-        working-directory: ./angular-app
+    working-directory: ./server
+    run: node server.js
+    env:
+      DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
+    uses: build-node.yml@main
+    with:
+      working-directory: ./angular-app
   build-code-ui:
-    - name: Set Env files
-      working-directory: ./server
-      run: node server.js
-      env:
-        DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
-      uses: build-node.yml@main
-      with:
-        working-directory: ./code-ui
+    working-directory: ./server
+    run: node server.js
+    env:
+      DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
+    uses: build-node.yml@main
+    with:
+      working-directory: ./code-ui
