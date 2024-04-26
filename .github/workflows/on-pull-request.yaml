@@ -7,14 +7,19 @@ on:
 
 jobs:
   build-angular-app:
-    - name: run angular app
-      working-directory: ./server
-      run: node server.js
-      env:
-        DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
-    - uses: ./.github/workflows/build-node.yml
-      with:
-        working-directory: ./angular-app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: run angular app
+        working-directory: ./server
+        run: node server.js
+        env:
+          DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
+      - uses: ./.github/workflows/build-node.yml
+        with:
+          working-directory: ./angular-app
   # build-code-ui:
   #   - name: run angular app
   #     working-directory: ./server
