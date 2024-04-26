@@ -7,10 +7,10 @@ on:
 
 jobs:
   build-angular-app:
-    uses: .github/workflows/build-node.yml@main
+    uses: ./.github/workflows/build-node.yml
     with:
       working-directory: ./angular-app
   build-code-ui:
-    uses: .github/workflows/build-node.yml@main
+    uses: ./.github/workflows/build-node.yml
     with:
       working-directory: ./code-ui
