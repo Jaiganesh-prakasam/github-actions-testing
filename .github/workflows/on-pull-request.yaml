@@ -7,11 +7,12 @@ on:
 
 jobs:
   set-env-vars:
-    name: generating env variable
-    working-directory: ./server
-    run: node server.js
-    env:
-      DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
+    steps:
+      - name: generating env variable
+        working-directory: ./server
+        run: node server.js
+        env:
+          DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
   build-angular-app:
     uses: ./.github/workflows/build-node.yml
     with:
