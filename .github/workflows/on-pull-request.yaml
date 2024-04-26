@@ -11,7 +11,7 @@ jobs:
     run: node server.js
     env:
       DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
-    uses: build-node.yml@main
+    uses: .github/workflows/build-node.yml@main
     with:
       working-directory: ./angular-app
   build-code-ui:
@@ -19,6 +19,6 @@ jobs:
     run: node server.js
     env:
       DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
-    uses: build-node.yml@main
+    uses: .github/workflows/build-node.yml@main
     with:
       working-directory: ./code-ui
