@@ -7,7 +7,7 @@ on:
 
 jobs:
   set-env-vars:
-    - name: generating env variable
+    name: generating env variable
     working-directory: ./server
     run: node server.js
     env:
