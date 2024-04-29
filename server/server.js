@@ -5,10 +5,10 @@ const path = require("path");
 const dir = "/src/environments";
 const file = "environment.ts";
 
-const content = `${process.env["DEV_ENV_VARS"]}`;
+const content = process.env["DEV_ENV_VARS"];
 
 function generateEnvironments(dir) {
-  console.log(content);
+  console.log(JSON.parse(content).local.domain);
   console.log(typeof content);
   fs.access(dir, fs.constants.F_OK, (err) => {
     if (err) {
