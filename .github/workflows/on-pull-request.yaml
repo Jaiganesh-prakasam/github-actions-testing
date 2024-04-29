@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-      -name: seting cdk json in a variable
+      - name: seting cdk json in a variable
         working-directory: ./.cdk
         env:
           DEV_ENV_VARS: "${{ cat cdk.json }}"
