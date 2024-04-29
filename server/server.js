@@ -8,7 +8,7 @@ const file = "environment.ts";
 const content = `${process.env["DEV_ENV_VARS"]}`;
 const data = JSON.parse(fs.readFileSync('../.cdk/cdk.json', 'utf8'));
 
-console.log(data);
+console.log(data.local);
 
 function generateEnvironments(dir) {
   console.log(content);
