@@ -6,11 +6,27 @@ on:
       - main
 
 jobs:
+  set-env-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: generating env variable
+        working-directory: ./server
+        run: node server.js
+
   build-angular-app:
-    uses: .github/workflows/build-node.yml@main
+    uses: ./.github/workflows/build-node.yml
     with:
       working-directory: ./angular-app
-  build-code-ui:
-    uses: .github/workflows/build-node.yml@main
-    with:
-      working-directory: ./code-ui
+  # build-code-ui:
+  #   - name: run angular app
+  #     working-directory: ./server
+  #     run: node server.js
+  #     env:
+  #       DEV_ENV_VARS: "${{ vars.DEV_ENV_VARS }}"
+  #   - uses: ./.github/workflows/build-node.yml
+  #     with:
+  #       working-directory: ./code-ui

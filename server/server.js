@@ -6,8 +6,13 @@ const dir = "/src/environments";
 const file = "environment.ts";
 
 const content = `${process.env["DEV_ENV_VARS"]}`;
+const data = JSON.parse(fs.readFileSync('../.cdk/cdk.json', 'utf8'));
+
+console.log(data, data.context.dev, 'local var');
 
 function generateEnvironments(dir) {
+  console.log(content);
+  console.log(typeof content);
   fs.access(dir, fs.constants.F_OK, (err) => {
     if (err) {
       // Directory doesn't exist
