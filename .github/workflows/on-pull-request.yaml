@@ -16,7 +16,7 @@ jobs:
       - name: seting cdk json in a variable
         working-directory: ./.cdk
         env:
-          DEV_ENV_VARS: cat cdk.json
+          DEV_ENV_VARS: $(cat cdk.json)
         run: ls
       - name: generating env variable
         working-directory: ./server
