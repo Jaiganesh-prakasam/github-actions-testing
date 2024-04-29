@@ -13,9 +13,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-      - name: seting cdk json in a variable
-        working-directory: ./.cdk
       - name: Get version
+        working-directory: ./.cdk
         run: echo "version=$(cat cdk.json)" >> $GITHUB_OUTPUT
       - name: Test output
         env:
