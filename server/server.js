@@ -8,6 +8,8 @@ const file = "environment.ts";
 const content = `${process.env["DEV_ENV_VARS"]}`;
 
 function generateEnvironments(dir) {
+  console.log(content);
+  console.log(typeof content);
   fs.access(dir, fs.constants.F_OK, (err) => {
     if (err) {
       // Directory doesn't exist
