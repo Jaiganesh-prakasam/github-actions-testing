@@ -13,13 +13,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-      - name: Get version
-        working-directory: ./.cdk
-        run: echo "version=$(cat cdk.json)" >> "$GITHUB_OUTPUT"
-      - name: Test output
-        env:
-          DEV_ENV_VARS: ${{ steps.outputs.version.local.DomainName }}
-        run: echo ${{ steps.outputs.version.local.DomainName }}
       - name: generating env variable
         working-directory: ./server
         run: node server.js
