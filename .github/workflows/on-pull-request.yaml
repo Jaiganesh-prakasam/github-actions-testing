@@ -15,7 +15,7 @@ jobs:
           node-version: "18"
       - name: Get version
         working-directory: ./.cdk
-        run: echo "version=$(cat cdk.json)" >> $GITHUB_OUTPUT
+        run: echo "version=$(cat cdk.json)" >> "$GITHUB_OUTPUT"
       - name: Test output
         env:
           DEV_ENV_VARS: ${{ steps.outputs.version.local.DomainName }}
