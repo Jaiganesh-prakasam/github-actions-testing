@@ -15,8 +15,13 @@ jobs:
           node-version: "18"
       - name: seting cdk json in a variable
         working-directory: ./.cdk
+      - name: Get version
+        id: vars
+        run: echo "version=$(cat cdk.json)" >> $GITHUB_OUTPUT
+      - name: Test output
+        run: echo ${{ steps.vars.outputs.version.local.DomainName }}
         env:
-          DEV_ENV_VARS: $(cat cdk.json)
+          DEV_ENV_VARS: ${{ steps.vars.outputs.version.local.DomainName }}
         run: ls
       - name: generating env variable
         working-directory: ./server
